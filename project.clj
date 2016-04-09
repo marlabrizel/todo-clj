@@ -5,6 +5,8 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [ring "1.4.0"]]
+  :plugins [[lein-ring "0.9.7"]]
+  :ring {:handler todo-clj.core/handler}
   :main ^:skip-aot todo-clj.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
