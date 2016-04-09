@@ -6,6 +6,7 @@
 
 (defroutes app-routes
   (GET "/" [] (resp/content-type (resp/resource-response  "index.html" {:root "public"}) "text/html"))
+  (GET "/about" [] (resp/content-type (resp/resource-response  "about.html" {:root "public"}) "text/html"))
   (route/resources "/")
   (route/files "public")
   (route/not-found "Not Found"))
