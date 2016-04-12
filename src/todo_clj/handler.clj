@@ -4,11 +4,11 @@
             [ring.util.response :as resp]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
             [todo_clj.views.layout :as layout]
-            [todo_clj.views.todos :as todos]))
+            [todo_clj.controllers.todos :as controller]
+            [todo_clj.views.todos :as view]))
 
 (defroutes app-routes
-  (GET "/" [] (layout/application "Home" (todos/index)))
-  (GET "/about" [] (resp/content-type (resp/resource-response  "about.html" {:root "public"}) "text/html"))
+  controller/app-routes
   (route/resources "/")
   (route/files "public")
   (route/not-found "Not Found"))
