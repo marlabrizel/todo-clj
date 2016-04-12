@@ -8,11 +8,11 @@
   (map
     (fn [todo]
       [:ul {:class "todo"}
-        [:li (h (:text todo))]
-        [:li (h (:status todo))]])
-    todos )])
+        [:li "Description: "(h (:text todo))]
+        [:li "Status: "(h (:status todo))]])
+    todos)])
 
 (defn index []
   [:div {:class "todo"}
-    [:h1 "All ToDos"]
+    [:h1 {:class "header"} "All ToDos"]
     (display-todos (todo/all))])

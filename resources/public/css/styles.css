@@ -5,3 +5,7 @@
 .header {
   text-align: center;
 }
+
+.todo {
+  list-style-type: none;
+}
