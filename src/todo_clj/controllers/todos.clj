@@ -7,11 +7,11 @@
             [todo_clj.models.todo :as model]))
 
 (defn create [text, status]
-  (when-not (str/blank? text, status)
+  (when-not (str/blank? text)
     (model/create text, status))
   (resp/redirect "/"))
 
 (defroutes app-routes
   (GET  "/" [] (layout/application "Todo Clj" (view/index)))
   (GET "/about" [] (resp/content-type (resp/resource-response  "about.html" {:root "public"}) "text/html"))
-  (POST "/" [text, status] (model/create text, status)))
+  (POST "/" [text, status] (create text, status)))
