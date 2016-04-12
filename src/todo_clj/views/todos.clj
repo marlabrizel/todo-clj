@@ -1,7 +1,8 @@
 (ns todo_clj.views.todos
   (:use [hiccup.element]
         [hiccup.core]
-        [hiccup.form])
+        [hiccup.form]
+        [ring.util.anti-forgery :as anti-CSRF])
   (:require [todo_clj.models.todo :as todo]
             [todo_clj.views.layout :as layout]))
 
@@ -17,6 +18,7 @@
 (defn new-todo-form []
   [:div {:class "form-control" :id "todo-form"}
     (form-to [:post "/"]
+      (anti-CSRF/anti-forgery-field)
       (label "text" "What do you need to do?")
       (text-area "text")
       (submit-button "Enter"))])
