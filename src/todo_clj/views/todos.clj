@@ -1,7 +1,8 @@
 (ns todo_clj.views.todos
   (:use [hiccup.element]
-        [hiccup.core])
-  (:require [todo_clj.models.todo :as todo]))
+        [hiccup.core]
+        [hiccup.form])
+  (:require [todo_clj.models.todo :as todo]
             [todo_clj.views.layout :as layout]))
 
 (defn display-todos [todos]
@@ -13,11 +14,16 @@
         [:li "Status: "(h (:status todo))]])
     todos)])
 
+(defn new-todo-form []
+  [:div {:class "form-control" :id "todo-form"}
+    (form-to [:post "/"]
+      (label "text" "What do you need to do?")
+      (text-area "text")
+      (submit-button "Enter"))])
+
 (defn index []
-  [:div {:class "todo"}
-    [:h1 {:class "header"} "All ToDos"]
-    (display-todos (todo/all))])
   (layout/application "Todo Clj"
-    [:div {:class "todo"}
-      [:h1 {:class "header"} "All ToDos"]]
-    (display-todos (todo/all))))
+    [:div {:class "header"}
+      [:h1 "All ToDos"]]
+    (display-todos (todo/all))
+    (new-todo-form)))
