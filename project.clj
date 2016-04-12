@@ -7,7 +7,7 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [compojure "1.4.0"]
                  [ring/ring-defaults "0.1.5"]
-                 [org.clojure/java.jdbc "0.4.1"]
+                 [org.clojure/java.jdbc "0.3.7"]
                  [org.postgresql/postgresql "9.4-1201-jdbc41"]
                  [hiccup "1.0.5"]]
   :plugins [[lein-ring "0.9.7"]]
