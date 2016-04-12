@@ -21,6 +21,8 @@
       (anti-CSRF/anti-forgery-field)
       (label "text" "What do you need to do?")
       (text-area "text")
+      (label "status" "To do or done?")
+      (text-field "status")
       (submit-button "Enter"))])
 
 (defn index []
