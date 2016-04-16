@@ -9,3 +9,6 @@
 
 (defn create [text, status]
   (sql/insert! spec :todos {:text text :status "todo"}))
+
+(defn update-status [status]
+  (sql/insert! spec :todos {:staus status}))

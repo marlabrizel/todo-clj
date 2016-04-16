@@ -23,6 +23,12 @@
       (text-area "text")
       (submit-button "Enter"))])
 
+(defn update []
+  [:div {:class "form-control" :id "update-form"}
+    (form-to [:put "/"]
+      (anti-CSRF/anti-forgery-field)
+      (submit-button "Update Status"))])
+
 (defn index []
   (layout/application "Todo Clj"
     [:div {:class "header"}
